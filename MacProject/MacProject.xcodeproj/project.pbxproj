@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2CA441CEA7A7CB2F3F4ADC34 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6F7E4EDC8F3C17C84D99DDF4 /* PrivacyInfo.xcprivacy */; };
+		3A324F38BC9A135FA72CEC9D = {isa = PBXBuildFile; fileRef = 17064A789E3E8DA4278397B9 /* GameAssembly.dylib */; };
+		3B874EED993C9827738F9B08 /* GameAssembly.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 17064A789E3E8DA4278397B9 /* GameAssembly.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		750575B4214B38CE004B1B34 /* UnityPlayer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 750575B3214B38CE004B1B34 /* UnityPlayer.dylib */; };
+		750575B5214B3DF2004B1B34 /* UnityPlayer.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 750575B3214B38CE004B1B34 /* UnityPlayer.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		752CA83E2149E6C400295EFC /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 752CA83D2149E6C400295EFC /* Main.cpp */; };
+		75E7179121715210002B2479 /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75E7178E21715210002B2479 /* DefaultPreferences.plist */; };
+		75E7179221715210002B2479 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 75E7178F21715210002B2479 /* Data */; };
+		75E7179321715210002B2479 /* PlayerIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 75E7179021715210002B2479 /* PlayerIcon.icns */; };
+		8A3424552E8271DD00B20249 /* UnityNewDeleteOverride.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A3424542E8271DD00B20249 /* UnityNewDeleteOverride.cpp */; };
+		CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = CDD5792B240E027400DEA632 /* MainMenu.nib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DC248F2B4277521DB25B6C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B09644679FBAF4569496610E /* GameAssembly.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8A1C23AA25DE4C98008EA3B6;
+			remoteInfo = GameAssembly;
+		};
+		A2724AA8995DF52F243D5155 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 752CA8202149E6C100295EFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A1C23A925DE4C98008EA3B6;
+			remoteInfo = GameAssembly;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		61F54A2693A43BFE92C22AED /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3B874EED993C9827738F9B08 /* GameAssembly.dylib in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		750575B6214B3DF2004B1B34 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				750575B5214B3DF2004B1B34 /* UnityPlayer.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6F7E4EDC8F3C17C84D99DDF4 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = PrivacyInfo.xcprivacy; name = PrivacyInfo.xcprivacy; path = StepIntoUnityGC/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
+		750575B3214B38CE004B1B34 /* UnityPlayer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = UnityPlayer.dylib; path = StepIntoUnityGC/Frameworks/UnityPlayer.dylib; sourceTree = "<group>"; };
+		752CA8282149E6C100295EFC /* StepIntoUnityGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepIntoUnityGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		752CA83C2149E6C400295EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		752CA83D2149E6C400295EFC /* Main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
+		75E7178E21715210002B2479 /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DefaultPreferences.plist; path = StepIntoUnityGC/Resources/DefaultPreferences.plist; sourceTree = "<group>"; };
+		75E7178F21715210002B2479 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Data; path = StepIntoUnityGC/Resources/Data; sourceTree = "<group>"; };
+		75E7179021715210002B2479 /* PlayerIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PlayerIcon.icns; path = StepIntoUnityGC/Resources/PlayerIcon.icns; sourceTree = "<group>"; };
+		8A3424542E8271DD00B20249 /* UnityNewDeleteOverride.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnityNewDeleteOverride.cpp; sourceTree = "<group>"; };
+		AAB748BEBDF284C4E8758A14 /* ApplePrivacyManifestsMerge.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ApplePrivacyManifestsMerge.txt; path = StepIntoUnityGC/ApplePrivacyManifestsMerge.txt; sourceTree = SOURCE_ROOT; };
+		B09644679FBAF4569496610E /* GameAssembly.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GameAssembly.xcodeproj; sourceTree = SOURCE_ROOT; };
+		CDD5792B240E027400DEA632 /* MainMenu.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = MainMenu.nib; path = StepIntoUnityGC/Resources/MainMenu.nib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		752CA8252149E6C100295EFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				750575B4214B38CE004B1B34 /* UnityPlayer.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F4B4E81BB6C5166B1C2AE68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17064A789E3E8DA4278397B9 /* GameAssembly.dylib */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		750575B2214B38CE004B1B34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				750575B3214B38CE004B1B34 /* UnityPlayer.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		752CA81F2149E6C100295EFC = {
+			isa = PBXGroup;
+			children = (
+				75E7179421715230002B2479 /* Resources */,
+				750575B2214B38CE004B1B34 /* Frameworks */,
+				752CA82A2149E6C100295EFC /* StepIntoUnityGC */,
+				752CA8292149E6C100295EFC /* Products */,
+				B09644679FBAF4569496610E /* GameAssembly.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		752CA8292149E6C100295EFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				752CA8282149E6C100295EFC /* StepIntoUnityGC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		752CA82A2149E6C100295EFC /* StepIntoUnityGC */ = {
+			isa = PBXGroup;
+			children = (
+				8A3424542E8271DD00B20249 /* UnityNewDeleteOverride.cpp */,
+				752CA83C2149E6C400295EFC /* Info.plist */,
+				752CA83D2149E6C400295EFC /* Main.cpp */,
+				6F7E4EDC8F3C17C84D99DDF4 /* PrivacyInfo.xcprivacy */,
+				AAB748BEBDF284C4E8758A14 /* ApplePrivacyManifestsMerge.txt */,
+			);
+			path = StepIntoUnityGC;
+			sourceTree = "<group>";
+		};
+		75E7179421715230002B2479 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDD5792B240E027400DEA632 /* MainMenu.nib */,
+				75E7178F21715210002B2479 /* Data */,
+				75E7178E21715210002B2479 /* DefaultPreferences.plist */,
+				75E7179021715210002B2479 /* PlayerIcon.icns */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		752CA8272149E6C100295EFC /* StepIntoUnityGC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 752CA8422149E6C400295EFC /* Build configuration list for PBXNativeTarget "StepIntoUnityGC" */;
+			buildPhases = (
+				752CA8242149E6C100295EFC /* Sources */,
+				752CA8252149E6C100295EFC /* Frameworks */,
+				752CA8262149E6C100295EFC /* Resources */,
+				750575B6214B3DF2004B1B34 /* Embed Libraries */,
+				61F54A2693A43BFE92C22AED /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A54B490B9C45FBCC9774F3DE /* PBXTargetDependency */,
+			);
+			name = StepIntoUnityGC;
+			productName = StepIntoUnityGC;
+			productReference = 752CA8282149E6C100295EFC /* StepIntoUnityGC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		752CA8202149E6C100295EFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Unity Technologies";
+				TargetAttributes = {
+					752CA8272149E6C100295EFC = {
+						CreatedOnToolsVersion = 9.4.1;
+						UnityMainTarget = 1;
+					};
+				};
+			};
+			buildConfigurationList = 752CA8232149E6C100295EFC /* Build configuration list for PBXProject "Unity-iPhone" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 752CA81F2149E6C100295EFC;
+			productRefGroup = 752CA8292149E6C100295EFC;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2F4B4E81BB6C5166B1C2AE68 /* Products */;
+					ProjectRef = B09644679FBAF4569496610E /* GameAssembly.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				752CA8272149E6C100295EFC /* StepIntoUnityGC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		17064A789E3E8DA4278397B9 /* GameAssembly.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = GameAssembly.dylib;
+			remoteRef = 2DC248F2B4277521DB25B6C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		752CA8262149E6C100295EFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75E7179121715210002B2479 /* DefaultPreferences.plist in Resources */,
+				CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */,
+				75E7179221715210002B2479 /* Data in Resources */,
+				75E7179321715210002B2479 /* PlayerIcon.icns in Resources */,
+				2CA441CEA7A7CB2F3F4ADC34 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		752CA8242149E6C100295EFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				752CA83E2149E6C400295EFC /* Main.cpp in Sources */,
+				8A3424552E8271DD00B20249 /* UnityNewDeleteOverride.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A54B490B9C45FBCC9774F3DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A1C23A925DE4C98008EA3B6;
+			targetProxy = A2724AA8995DF52F243D5155 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		752CA8402149E6C400295EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		752CA8412149E6C400295EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		752CA8432149E6C400295EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = StepIntoUnityGC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DefaultCompany.3D-Project";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				UNITY_RUNTIME_VERSION = 6000.3.0b6;
+				UNITY_SCRIPTING_IL2CPP = 1;
+				VALID_ARCHS = arm64;
+			};
+			name = Debug;
+		};
+		752CA8442149E6C400295EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = StepIntoUnityGC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DefaultCompany.3D-Project";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				UNITY_RUNTIME_VERSION = 6000.3.0b6;
+				UNITY_SCRIPTING_IL2CPP = 1;
+				VALID_ARCHS = arm64;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		752CA8232149E6C100295EFC /* Build configuration list for PBXProject "Unity-iPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				752CA8402149E6C400295EFC /* Debug */,
+				752CA8412149E6C400295EFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		752CA8422149E6C400295EFC /* Build configuration list for PBXNativeTarget "StepIntoUnityGC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				752CA8432149E6C400295EFC /* Debug */,
+				752CA8442149E6C400295EFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 752CA8202149E6C100295EFC /* Project object */;
+}
