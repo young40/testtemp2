@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F3446DCB9905A3D264D24B3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AB794180B697E1B575B4E0D7 /* PrivacyInfo.xcprivacy */; };
-		50CC42029958C0BAA65EF06A /* GameAssembly.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B524A04A973C44F353674C0 /* GameAssembly.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6ABD409CBABF940D59B353F0 = {isa = PBXBuildFile; fileRef = 2B524A04A973C44F353674C0 /* GameAssembly.dylib */; };
+		55824EDCB15723CBC65CD3BE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F18A46668CA07C94D3E61C9C /* PrivacyInfo.xcprivacy */; };
 		750575B4214B38CE004B1B34 /* UnityPlayer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 750575B3214B38CE004B1B34 /* UnityPlayer.dylib */; };
 		750575B5214B3DF2004B1B34 /* UnityPlayer.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 750575B3214B38CE004B1B34 /* UnityPlayer.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		752CA83E2149E6C400295EFC /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 752CA83D2149E6C400295EFC /* Main.cpp */; };
 		75E7179121715210002B2479 /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75E7178E21715210002B2479 /* DefaultPreferences.plist */; };
 		75E7179221715210002B2479 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 75E7178F21715210002B2479 /* Data */; };
 		75E7179321715210002B2479 /* PlayerIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 75E7179021715210002B2479 /* PlayerIcon.icns */; };
+		76B24FCBBC890546202177CF /* GameAssembly.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37A14BF593586FC39243CFC8 /* GameAssembly.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A3424552E8271DD00B20249 /* UnityNewDeleteOverride.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A3424542E8271DD00B20249 /* UnityNewDeleteOverride.cpp */; };
 		CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = CDD5792B240E027400DEA632 /* MainMenu.nib */; };
+		E1F744D1A483A15475FDC0D7 = {isa = PBXBuildFile; fileRef = 37A14BF593586FC39243CFC8 /* GameAssembly.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		449844999FFB5A651D45D83F /* PBXContainerItemProxy */ = {
+		2104482EA7D4CB6C9116A1A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 308149B7A7703737A1E29F1C /* GameAssembly.xcodeproj */;
+			containerPortal = 798C4EFD85E4B9BC087D9BBA /* GameAssembly.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8A1C23AA25DE4C98008EA3B6;
 			remoteInfo = GameAssembly;
 		};
-		744246038ED8035E1FA39768 /* PBXContainerItemProxy */ = {
+		62EF460FA99821A8D38A5610 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 752CA8202149E6C100295EFC /* Project object */;
 			proxyType = 1;
@@ -49,13 +49,13 @@
 			name = "Embed Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		856543A0832C5FE39C1F70B9 /* Embed Frameworks */ = {
+		EF4D4402908527DB4A51F7FC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				50CC42029958C0BAA65EF06A /* GameAssembly.dylib in Embed Frameworks */,
+				76B24FCBBC890546202177CF /* GameAssembly.dylib in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,8 +63,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		308149B7A7703737A1E29F1C /* GameAssembly.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GameAssembly.xcodeproj; sourceTree = SOURCE_ROOT; };
-		39AD424BB812613A5AFF8D9B /* ApplePrivacyManifestsMerge.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ApplePrivacyManifestsMerge.txt; path = StepIntoUnityGC/ApplePrivacyManifestsMerge.txt; sourceTree = SOURCE_ROOT; };
 		750575B3214B38CE004B1B34 /* UnityPlayer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = UnityPlayer.dylib; path = StepIntoUnityGC/Frameworks/UnityPlayer.dylib; sourceTree = "<group>"; };
 		752CA8282149E6C100295EFC /* StepIntoUnityGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepIntoUnityGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		752CA83C2149E6C400295EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,9 +70,11 @@
 		75E7178E21715210002B2479 /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DefaultPreferences.plist; path = StepIntoUnityGC/Resources/DefaultPreferences.plist; sourceTree = "<group>"; };
 		75E7178F21715210002B2479 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Data; path = StepIntoUnityGC/Resources/Data; sourceTree = "<group>"; };
 		75E7179021715210002B2479 /* PlayerIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PlayerIcon.icns; path = StepIntoUnityGC/Resources/PlayerIcon.icns; sourceTree = "<group>"; };
+		798C4EFD85E4B9BC087D9BBA /* GameAssembly.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = GameAssembly.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8A3424542E8271DD00B20249 /* UnityNewDeleteOverride.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnityNewDeleteOverride.cpp; sourceTree = "<group>"; };
-		AB794180B697E1B575B4E0D7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = PrivacyInfo.xcprivacy; name = PrivacyInfo.xcprivacy; path = StepIntoUnityGC/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
 		CDD5792B240E027400DEA632 /* MainMenu.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = MainMenu.nib; path = StepIntoUnityGC/Resources/MainMenu.nib; sourceTree = "<group>"; };
+		DA754563A94EDA957B03D82F /* ApplePrivacyManifestsMerge.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ApplePrivacyManifestsMerge.txt; path = StepIntoUnityGC/ApplePrivacyManifestsMerge.txt; sourceTree = SOURCE_ROOT; };
+		F18A46668CA07C94D3E61C9C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = PrivacyInfo.xcprivacy; name = PrivacyInfo.xcprivacy; path = StepIntoUnityGC/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +89,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4F8A4CF385C5E782D02BD18B /* Products */ = {
+		3C7A4A3CA4B44B368B78BDCD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B524A04A973C44F353674C0 /* GameAssembly.dylib */,
+				37A14BF593586FC39243CFC8 /* GameAssembly.dylib */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 				750575B2214B38CE004B1B34 /* Frameworks */,
 				752CA82A2149E6C100295EFC /* StepIntoUnityGC */,
 				752CA8292149E6C100295EFC /* Products */,
-				308149B7A7703737A1E29F1C /* GameAssembly.xcodeproj */,
+				798C4EFD85E4B9BC087D9BBA /* GameAssembly.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,8 +130,8 @@
 				8A3424542E8271DD00B20249 /* UnityNewDeleteOverride.cpp */,
 				752CA83C2149E6C400295EFC /* Info.plist */,
 				752CA83D2149E6C400295EFC /* Main.cpp */,
-				AB794180B697E1B575B4E0D7 /* PrivacyInfo.xcprivacy */,
-				39AD424BB812613A5AFF8D9B /* ApplePrivacyManifestsMerge.txt */,
+				F18A46668CA07C94D3E61C9C /* PrivacyInfo.xcprivacy */,
+				DA754563A94EDA957B03D82F /* ApplePrivacyManifestsMerge.txt */,
 			);
 			path = StepIntoUnityGC;
 			sourceTree = "<group>";
@@ -158,12 +158,12 @@
 				752CA8252149E6C100295EFC /* Frameworks */,
 				752CA8262149E6C100295EFC /* Resources */,
 				750575B6214B3DF2004B1B34 /* Embed Libraries */,
-				856543A0832C5FE39C1F70B9 /* Embed Frameworks */,
+				EF4D4402908527DB4A51F7FC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				99D34BC8AD28D49D43CBA3B4 /* PBXTargetDependency */,
+				83AC4CD98AE506D596B35449 /* PBXTargetDependency */,
 			);
 			name = StepIntoUnityGC;
 			productName = StepIntoUnityGC;
@@ -198,8 +198,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 4F8A4CF385C5E782D02BD18B /* Products */;
-					ProjectRef = 308149B7A7703737A1E29F1C /* GameAssembly.xcodeproj */;
+					ProductGroup = 3C7A4A3CA4B44B368B78BDCD /* Products */;
+					ProjectRef = 798C4EFD85E4B9BC087D9BBA /* GameAssembly.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -210,11 +210,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2B524A04A973C44F353674C0 /* GameAssembly.dylib */ = {
+		37A14BF593586FC39243CFC8 /* GameAssembly.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = GameAssembly.dylib;
-			remoteRef = 449844999FFB5A651D45D83F /* PBXContainerItemProxy */;
+			remoteRef = 2104482EA7D4CB6C9116A1A3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -228,7 +228,7 @@
 				CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */,
 				75E7179221715210002B2479 /* Data in Resources */,
 				75E7179321715210002B2479 /* PlayerIcon.icns in Resources */,
-				1F3446DCB9905A3D264D24B3 /* PrivacyInfo.xcprivacy in Resources */,
+				55824EDCB15723CBC65CD3BE /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,10 +247,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		99D34BC8AD28D49D43CBA3B4 /* PBXTargetDependency */ = {
+		83AC4CD98AE506D596B35449 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8A1C23A925DE4C98008EA3B6;
-			targetProxy = 744246038ED8035E1FA39768 /* PBXContainerItemProxy */;
+			targetProxy = 62EF460FA99821A8D38A5610 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

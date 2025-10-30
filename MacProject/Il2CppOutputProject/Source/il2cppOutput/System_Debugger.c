@@ -18,8 +18,9 @@ static const char* g_methodExecutionContextInfoStrings[1] = { NULL };
 static const char* g_methodExecutionContextInfoStrings[1] = { NULL };
 #endif
 #if IL2CPP_MONO_DEBUGGER
-static const Il2CppMethodExecutionContextInfoIndex g_methodExecutionContextInfoIndexes[597] = 
+static const Il2CppMethodExecutionContextInfoIndex g_methodExecutionContextInfoIndexes[598] = 
 {
+	{ 0, 0 },
 	{ 0, 0 },
 	{ 0, 0 },
 	{ 0, 0 },
@@ -630,32 +631,32 @@ Il2CppSequencePoint g_sequencePointsSystem[1] = { { 0, 0, 0, 0, 0, 0, 0, kSequen
 #endif
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppCatchPoint g_catchPoints[] = {
-{ 12328, 7006, 916, 0, -1 },
-{ 12330, 3448, 821, 0, -1 },
-{ 12330, 3448, 1563, 1, -1 },
-{ 12330, 3448, 1897, 2, -1 },
-{ 12334, 3448, 415, 0, -1 },
-{ 12334, 3448, 1904, 1, -1 },
-{ 12335, 3448, 433, 0, -1 },
-{ 12336, 3448, 269, 0, -1 },
-{ 12351, 3448, 760, 0, -1 },
-{ 12360, 7006, 136, 0, -1 },
-{ 12408, 3448, 211, 0, -1 },
-{ 12409, 3448, 98, 0, -1 },
-{ 12412, 3448, 16, 0, -1 },
-{ 12413, 3448, 219, 0, -1 },
-{ 12413, 3448, 327, 1, -1 },
-{ 12431, 3450, 48, 0, -1 },
-{ 12653, 5641, 16, 0, -1 },
-{ 12654, 5641, 16, 0, -1 },
-{ 12655, 5641, 16, 0, -1 },
-{ 12656, 5641, 16, 0, -1 },
-{ 12657, 5641, 259, 0, -1 },
-{ 12670, 5641, 137, 0, -1 },
-{ 12675, 5641, 119, 0, -1 },
-{ 12688, 5641, 90, 0, -1 },
-{ 12702, 5641, 66, 0, -1 },
-{ 12766, 3468, 209, 0, -1 },
+{ 12329, 7013, 916, 0, -1 },
+{ 12331, 3450, 821, 0, -1 },
+{ 12331, 3450, 1563, 1, -1 },
+{ 12331, 3450, 1897, 2, -1 },
+{ 12335, 3450, 415, 0, -1 },
+{ 12335, 3450, 1904, 1, -1 },
+{ 12336, 3450, 433, 0, -1 },
+{ 12337, 3450, 269, 0, -1 },
+{ 12352, 3450, 760, 0, -1 },
+{ 12361, 7013, 136, 0, -1 },
+{ 12409, 3450, 211, 0, -1 },
+{ 12410, 3450, 98, 0, -1 },
+{ 12413, 3450, 16, 0, -1 },
+{ 12414, 3450, 219, 0, -1 },
+{ 12414, 3450, 327, 1, -1 },
+{ 12432, 3452, 48, 0, -1 },
+{ 12655, 5647, 16, 0, -1 },
+{ 12656, 5647, 16, 0, -1 },
+{ 12657, 5647, 16, 0, -1 },
+{ 12658, 5647, 16, 0, -1 },
+{ 12659, 5647, 259, 0, -1 },
+{ 12672, 5647, 137, 0, -1 },
+{ 12677, 5647, 119, 0, -1 },
+{ 12690, 5647, 90, 0, -1 },
+{ 12704, 5647, 66, 0, -1 },
+{ 12768, 3470, 209, 0, -1 },
 };
 #else
 static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
@@ -676,8 +677,9 @@ static const Il2CppMethodScope g_methodScopes[1] = { { 0, 0 } };
 static const Il2CppMethodScope g_methodScopes[1] = { { 0, 0 } };
 #endif
 #if IL2CPP_MONO_DEBUGGER
-static const Il2CppMethodHeaderInfo g_methodHeaderInfos[597] = 
+static const Il2CppMethodHeaderInfo g_methodHeaderInfos[598] = 
 {
+	{ 0, 0, 0 },
 	{ 0, 0, 0 },
 	{ 0, 0, 0 },
 	{ 0, 0, 0 },
