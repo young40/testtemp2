@@ -79,5 +79,11 @@ crashlytics-build.properties
 
 .idea
 
+# Claude Code configuration
+.claude/
+
 # Unity Frameworks directory
 MacProject/StepIntoUnityGC/Frameworks/
+
+# MacProject build outputs
+MacProject/build/

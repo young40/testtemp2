@@ -17,7 +17,6 @@
 		76B24FCBBC890546202177CF /* GameAssembly.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37A14BF593586FC39243CFC8 /* GameAssembly.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A3424552E8271DD00B20249 /* UnityNewDeleteOverride.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A3424542E8271DD00B20249 /* UnityNewDeleteOverride.cpp */; };
 		CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = CDD5792B240E027400DEA632 /* MainMenu.nib */; };
-		E1F744D1A483A15475FDC0D7 = {isa = PBXBuildFile; fileRef = 37A14BF593586FC39243CFC8 /* GameAssembly.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,7 +184,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 752CA8232149E6C100295EFC /* Build configuration list for PBXProject "Unity-iPhone" */;
+			buildConfigurationList = 752CA8232149E6C100295EFC /* Build configuration list for PBXProject "MacProject" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -194,7 +193,7 @@
 				Base,
 			);
 			mainGroup = 752CA81F2149E6C100295EFC;
-			productRefGroup = 752CA8292149E6C100295EFC;
+			productRefGroup = 752CA8292149E6C100295EFC /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -249,7 +248,6 @@
 /* Begin PBXTargetDependency section */
 		83AC4CD98AE506D596B35449 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8A1C23A925DE4C98008EA3B6;
 			targetProxy = 62EF460FA99821A8D38A5610 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -367,6 +365,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = StepIntoUnityGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
@@ -383,6 +383,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = StepIntoUnityGC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
@@ -397,7 +398,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		752CA8232149E6C100295EFC /* Build configuration list for PBXProject "Unity-iPhone" */ = {
+		752CA8232149E6C100295EFC /* Build configuration list for PBXProject "MacProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				752CA8402149E6C400295EFC /* Debug */,

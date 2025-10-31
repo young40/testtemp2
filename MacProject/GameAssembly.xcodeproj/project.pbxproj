@@ -5426,7 +5426,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A1C23A525DE4C98008EA3B6 /* Build configuration list for PBXProject "Unity-iPhone" */;
+			buildConfigurationList = 8A1C23A525DE4C98008EA3B6 /* Build configuration list for PBXProject "GameAssembly" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -5435,7 +5435,7 @@
 				Base,
 			);
 			mainGroup = 8A1C23A125DE4C98008EA3B6;
-			productRefGroup = 8A1C23AB25DE4C98008EA3B6;
+			productRefGroup = 8A1C23AB25DE4C98008EA3B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -5449,6 +5449,10 @@
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5501,7 +5505,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -5563,6 +5567,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -5603,7 +5608,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A1C23A525DE4C98008EA3B6 /* Build configuration list for PBXProject "Unity-iPhone" */ = {
+		8A1C23A525DE4C98008EA3B6 /* Build configuration list for PBXProject "GameAssembly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A1C23AC25DE4C98008EA3B6 /* Debug */,
