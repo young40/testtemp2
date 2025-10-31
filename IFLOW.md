@@ -8,6 +8,8 @@ Unity的原内容在 `Assets` 目录. `MacProject/Il2CppOutputProject/Source/il2
 `IL2CPP` 目录下有几个值得注意的目录. `external/bdwgc` 为垃圾回收GC的源码. `libil2cpp/gc` 是在IL2CPP下对GC的封装.
 `libil2cpp` 是IC2CPP的核心源码.
 
+项目的主要学习笔记位于 `docs` 目录下，特别是 `docs/IL2CPP学习笔记.md` 文件，它汇总了关于IL2CPP的核心知识点。
+
 ## 学习规则
 
 *   学习到的内容要记录到`docs`目录下的文件里面

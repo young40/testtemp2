@@ -10,6 +10,10 @@
   - `os`：操作系统相关接口封装
 - **垃圾回收实现**：位于`libil2cpp/gc`目录下，基于Boehm-Demers-Weiser GC
 
+## 2. 初始化流程
+
+IL2CPP的初始化流程是理解其运行机制的关键。详细内容请参见 [IL2CPP初始化流程详解](IL2CPP初始化流程.md)。
+
 ## 2. 垃圾回收机制
 
 - **GC类型**：IL2CPP使用Boehm-Demers-Weiser保守垃圾回收器
