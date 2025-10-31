@@ -39,3 +39,24 @@ Unity的原内容在 `Assets` 目录. `MacProject/Il2CppOutputProject/Source/il2
 *   **编辑器**: 在 Unity 编辑器中直接打开项目文件夹即可进行开发和测试。
 *   **构建**: 可以通过 Unity 编辑器的 Build Settings 构建项目。当前配置显示为 macOS Standalone 平台。
 *   **IL2CPP 构建产物**: 构建后的 C++ 代码位于 `MacProject/Il2CppOutputProject/Source/il2cppOutput/`，其中 `MySIUGCScript.cpp` 对应了 `Assets/Scripts/MySIUGCScript.cs` 的 C++ 实现。
+
+# Git 提交规范
+
+## 语言要求
+- 所有提交信息必须使用英文
+- 不要在提交信息中使用中文字符
+
+## 提交信息格式
+使用 Angular 风格的提交信息格式
+
+## Git 命令建议
+- 查看提交历史：`git --no-pager log`
+- 查看差异：`git --no-pager diff`
+
+## 快捷指令
+当收到单独的"1"指令时，执行以下操作：
+1. 检查本地文件修改(包含子模块)
+2. 分析文件修改
+3. 编制合理的提交信息
+4. 提交并推送到远程
+5. 对于子模块修改，也要注意提交主仓库。如果只有一个子模块被修改了，父仓库和其他子模块文件均未修改，则父仓库提交的commit信息和子模块保持一致。
