@@ -96,87 +96,83 @@ int il2cpp_init(const char* domain_name)
 {
     setlocale(LC_ALL, "");
 
-    // 使用文件输出确保能够看到调试信息
-    FILE* debugFile = fopen("/tmp/il2cpp_init_debug.log", "a");
-    if (debugFile) {
-        fprintf(debugFile, "=== il2cpp_init called with domain_name: %s ===\n", domain_name ? domain_name : "NULL");
-        fprintf(debugFile, "Standard C++ call stack using execinfo.h:\n");
+    // Unity会自动重定向printf输出到日志文件：/Users/young40/Library/Logs/DefaultCompany/StepIntoUnityGC/Player.log
+    printf("=== il2cpp_init called with domain_name: %s ===\n", domain_name ? domain_name : "NULL");
+    printf("Standard C++ call stack using execinfo.h:\n");
 
-        // 使用标准C++的execinfo.h来获取调用堆栈
-        const int MAX_STACK_FRAMES = 64;
-        void* callstack[MAX_STACK_FRAMES];
-        int frameCount = backtrace(callstack, MAX_STACK_FRAMES);
+    // 使用标准C++的execinfo.h来获取调用堆栈
+    const int MAX_STACK_FRAMES = 64;
+    void* callstack[MAX_STACK_FRAMES];
+    int frameCount = backtrace(callstack, MAX_STACK_FRAMES);
 
-        // 将堆栈符号转换为可读字符串
-        char** symbols = backtrace_symbols(callstack, frameCount);
+    // 将堆栈符号转换为可读字符串
+    char** symbols = backtrace_symbols(callstack, frameCount);
 
-        if (symbols != NULL) {
-            for (int i = 0; i < frameCount; i++) {
-                fprintf(debugFile, "Frame #%d: %p\n", i+1, callstack[i]);
+    if (symbols != NULL) {
+        for (int i = 0; i < frameCount; i++) {
+            printf("Frame #%d: %p\n", i+1, callstack[i]);
 
-                // 解析符号信息
-                char* symbol = symbols[i];
+            // 解析符号信息
+            char* symbol = symbols[i];
 
-                // 尝试从符号字符串中提取函数名
-                if (symbol != NULL) {
-                    // 查找函数名在符号字符串中的位置
-                    char* start = strchr(symbol, '(');
-                    if (start) {
-                        start++; // 跳过 '('
-                        char* end = strchr(start, '+');
-                        if (end) {
-                            *end = '\0'; // 截断函数名
-                            fprintf(debugFile, "  [C++] Function: %s\n", start);
-                        } else {
-                            // 如果没有找到+号，尝试找到)号
-                            end = strchr(start, ')');
-                            if (end) {
-                                *end = '\0';
-                                fprintf(debugFile, "  [C++] Function: %s\n", start);
-                            } else {
-                                fprintf(debugFile, "  [C++] Symbol: %s\n", symbol);
-                            }
-                        }
+            // 尝试从符号字符串中提取函数名
+            if (symbol != NULL) {
+                // 查找函数名在符号字符串中的位置
+                char* start = strchr(symbol, '(');
+                if (start) {
+                    start++; // 跳过 '('
+                    char* end = strchr(start, '+');
+                    if (end) {
+                        *end = '\0'; // 截断函数名
+                        printf("  [C++] Function: %s\n", start);
                     } else {
-                        // 尝试查找最后一个空格后的内容（函数名通常在最后）
-                        char* last_space = strrchr(symbol, ' ');
-                        if (last_space) {
-                            fprintf(debugFile, "  [C++]: %s\n", last_space);
+                        // 如果没有找到+号，尝试找到)号
+                        end = strchr(start, ')');
+                        if (end) {
+                            *end = '\0';
+                            printf("  [C++] Function: %s\n", start);
                         } else {
-                            fprintf(debugFile, "  [C++]: %s\n", symbol);
+                            printf("  [C++] Symbol: %s\n", symbol);
                         }
                     }
-                }
-
-                // 使用dladdr获取更详细的符号信息
-                Dl_info dlInfo;
-                if (dladdr(callstack[i], &dlInfo)) {
-                    if (dlInfo.dli_sname) {
-                        fprintf(debugFile, "  [dladdr] Demangled: %s\n", dlInfo.dli_sname);
-                    }
-                    if (dlInfo.dli_fname) {
-                        fprintf(debugFile, "  [dladdr] File: %s\n", dlInfo.dli_fname);
-                    }
-                    if (dlInfo.dli_fbase) {
-                        fprintf(debugFile, "  [dladdr] Base: %p\n", dlInfo.dli_fbase);
+                } else {
+                    // 尝试查找最后一个空格后的内容（函数名通常在最后）
+                    char* last_space = strrchr(symbol, ' ');
+                    if (last_space) {
+                        printf("  [C++]: %s\n", last_space);
+                    } else {
+                        printf("  [C++]: %s\n", symbol);
                     }
                 }
-
-                fprintf(debugFile, "\n");
             }
 
-            free(symbols);
-        } else {
-            fprintf(debugFile, "Failed to get backtrace symbols\n");
-            // 至少输出内存地址
-            for (int i = 0; i < frameCount; i++) {
-                fprintf(debugFile, "Frame #%d: %p\n", i+1, callstack[i]);
+            // 使用dladdr获取更详细的符号信息
+            Dl_info dlInfo;
+            if (dladdr(callstack[i], &dlInfo)) {
+                if (dlInfo.dli_sname) {
+                    printf("  [dladdr] Demangled: %s\n", dlInfo.dli_sname);
+                }
+                if (dlInfo.dli_fname) {
+                    printf("  [dladdr] File: %s\n", dlInfo.dli_fname);
+                }
+                if (dlInfo.dli_fbase) {
+                    printf("  [dladdr] Base: %p\n", dlInfo.dli_fbase);
+                }
             }
+
+            printf("\n");
         }
 
-        fprintf(debugFile, "=== End of call stack (total frames: %d) ===\n", frameCount);
-        fclose(debugFile);
+        free(symbols);
+    } else {
+        printf("Failed to get backtrace symbols\n");
+        // 至少输出内存地址
+        for (int i = 0; i < frameCount; i++) {
+            printf("Frame #%d: %p\n", i+1, callstack[i]);
+        }
     }
+
+    printf("=== End of call stack (total frames: %d) ===\n", frameCount);
 
     return Runtime::Init(domain_name);
 }
@@ -273,19 +269,28 @@ Frame #3: 0x10e35fae4
 ### 3.5 调试技巧
 
 #### 3.5.1 日志文件位置
-调试信息输出到 `/tmp/il2cpp_init_debug.log`，可以通过以下命令实时查看：
-```bash
-tail -f /tmp/il2cpp_init_debug.log
+调试信息会自动输出到 Unity 的标准日志文件：
+```
+/Users/young40/Library/Logs/DefaultCompany/StepIntoUnityGC/Player.log
 ```
 
-#### 3.5.2 清理日志文件
-在多次运行测试前，建议清理之前的日志：
+可以通过以下命令实时查看日志：
 ```bash
-cat /dev/null > /tmp/il2cpp_init_debug.log
+tail -F "/Users/young40/Library/Logs/DefaultCompany/StepIntoUnityGC/Player.log"
 ```
+tail -F 这里用大写的F参数, 因为日志可能会被删除重建小写f参数在重建后无法跟踪新文件
+
+#### 3.5.2 使用 Unity Editor
+也可以在 Unity Editor 中查看日志：
+1. 打开 Unity Editor
+2. 窗口 > General > Console（快捷键：Ctrl+Shift+C 或 Cmd+Shift+C）
+3. Console 窗口会显示所有 printf 输出
 
 #### 3.5.3 调试构建
 确保使用 Debug 配置构建项目，这样可以获得完整的调试符号和更好的堆栈信息。
+
+#### 3.5.4 实时调试
+由于使用 printf，调试信息会在应用程序运行时立即出现在日志文件中，无需重启应用程序。
 
 ### 3.6 应用场景
 
