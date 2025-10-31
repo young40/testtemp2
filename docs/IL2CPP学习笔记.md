@@ -40,3 +40,23 @@ IL2CPP使用Boehm-Demers-Weiser保守垃圾回收器，相关代码在libil2cpp/
 - 将C#类和方法转换为对应的C++类和函数
 - 生成类型信息和元数据供运行时使用
 - 处理C#特有的特性，如垃圾回收、泛型等
+
+## 7. IL2CPP执行入口点
+
+- 应用程序从Main.cpp开始，调用PlayerMain函数
+- PlayerMain最终会调用IL2CPP的初始化函数il2cpp_init
+- il2cpp_init在libil2cpp/il2cpp-api.cpp中实现，它会调用Runtime::Init进行初始化
+
+## 8. 核心模块
+
+- **Runtime** (`libil2cpp/vm/Runtime.cpp`)：负责整个运行时的初始化和管理
+- **GC** (`libil2cpp/gc/`)：垃圾回收的实现，支持Boehm GC等不同GC实现
+- **Domain** (`libil2cpp/vm/Domain.cpp`)：管理应用程序域
+- **Thread** (`libil2cpp/vm/Thread.cpp`)：线程管理
+- **Object Model** (`libil2cpp/vm/Object.cpp`, `libil2cpp/vm/Class.cpp`)：对象模型和类管理
+
+## 9. GC集成
+
+- IL2CPP使用Boehm GC作为默认垃圾回收器
+- `libil2cpp/gc/BoehmGC.cpp`实现了与Boehm GC的集成
+- `libil2cpp/gc/GarbageCollector.cpp`提供了GC的抽象接口
