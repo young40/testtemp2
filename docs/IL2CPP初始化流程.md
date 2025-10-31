@@ -65,6 +65,213 @@ IL2CPP 的初始化通常从 `libil2cpp/vm/Runtime.cpp` 文件中的 `Runtime::I
 *   一旦被信号量唤醒，它就会调用 `GarbageCollector::InvokeFinalizers()` 来处理那些需要执行终结器的对象。
 *   当 `Runtime::Shutdown` 被调用时，该线程会被通知停止运行。
 
-## 3. 总结
+## 3. 调用堆栈检查方法
 
-IL2CPP 的初始化流程始于 `Runtime::Init`，它按特定顺序初始化了运行时所需的各个核心组件：OS抽象层、元数据、GC、线程、核心类型、反射等。其中，GC 的初始化会启动一个关键的终结器线程，用于异步处理对象的清理工作。整个初始化流程确保了 IL2CPP 运行时环境在执行任何用户托管代码之前是正确且完备的。
+在研究和调试 IL2CPP 初始化流程时，检查调用堆栈是一项重要的技术手段。本文档详细介绍了如何在 `il2cpp_init` 函数中实现调用堆栈的打印和分析。
+
+### 3.1 技术背景
+
+Unity 应用程序会重定向 stdout 和 stderr，因此直接使用 `printf()` 语句在终端中不可见。我们需要使用文件输出或专门的调试机制来确保调试信息能够被捕获。
+
+### 3.2 实现方案：标准 C++ 调用堆栈打印
+
+#### 3.2.1 核心方法
+
+我们采用标准 C++ 的 `execinfo.h` 庽数实现调用堆栈打印，这种方法不依赖于 IL2CPP 特定 API，具有更好的兼容性和可移植性。
+
+**关键函数：**
+- `backtrace()` - 获取当前调用堆栈的内存地址数组
+- `backtrace_symbols()` - 将地址转换为符号字符串
+- `dladdr()` - 获取更详细的符号信息
+
+#### 3.2.2 代码实现
+
+```cpp
+// 在 MacProject/Il2CppOutputProject/IL2CPP/libil2cpp/il2cpp-api.cpp 中添加：
+
+#include <execinfo.h>
+#include <dlfcn.h>
+
+int il2cpp_init(const char* domain_name)
+{
+    setlocale(LC_ALL, "");
+
+    // 使用文件输出确保能够看到调试信息
+    FILE* debugFile = fopen("/tmp/il2cpp_init_debug.log", "a");
+    if (debugFile) {
+        fprintf(debugFile, "=== il2cpp_init called with domain_name: %s ===\n", domain_name ? domain_name : "NULL");
+        fprintf(debugFile, "Standard C++ call stack using execinfo.h:\n");
+
+        // 使用标准C++的execinfo.h来获取调用堆栈
+        const int MAX_STACK_FRAMES = 64;
+        void* callstack[MAX_STACK_FRAMES];
+        int frameCount = backtrace(callstack, MAX_STACK_FRAMES);
+
+        // 将堆栈符号转换为可读字符串
+        char** symbols = backtrace_symbols(callstack, frameCount);
+
+        if (symbols != NULL) {
+            for (int i = 0; i < frameCount; i++) {
+                fprintf(debugFile, "Frame #%d: %p\n", i+1, callstack[i]);
+
+                // 解析符号信息
+                char* symbol = symbols[i];
+
+                // 尝试从符号字符串中提取函数名
+                if (symbol != NULL) {
+                    // 查找函数名在符号字符串中的位置
+                    char* start = strchr(symbol, '(');
+                    if (start) {
+                        start++; // 跳过 '('
+                        char* end = strchr(start, '+');
+                        if (end) {
+                            *end = '\0'; // 截断函数名
+                            fprintf(debugFile, "  [C++] Function: %s\n", start);
+                        } else {
+                            // 如果没有找到+号，尝试找到)号
+                            end = strchr(start, ')');
+                            if (end) {
+                                *end = '\0';
+                                fprintf(debugFile, "  [C++] Function: %s\n", start);
+                            } else {
+                                fprintf(debugFile, "  [C++] Symbol: %s\n", symbol);
+                            }
+                        }
+                    } else {
+                        // 尝试查找最后一个空格后的内容（函数名通常在最后）
+                        char* last_space = strrchr(symbol, ' ');
+                        if (last_space) {
+                            fprintf(debugFile, "  [C++]: %s\n", last_space);
+                        } else {
+                            fprintf(debugFile, "  [C++]: %s\n", symbol);
+                        }
+                    }
+                }
+
+                // 使用dladdr获取更详细的符号信息
+                Dl_info dlInfo;
+                if (dladdr(callstack[i], &dlInfo)) {
+                    if (dlInfo.dli_sname) {
+                        fprintf(debugFile, "  [dladdr] Demangled: %s\n", dlInfo.dli_sname);
+                    }
+                    if (dlInfo.dli_fname) {
+                        fprintf(debugFile, "  [dladdr] File: %s\n", dlInfo.dli_fname);
+                    }
+                    if (dlInfo.dli_fbase) {
+                        fprintf(debugFile, "  [dladdr] Base: %p\n", dlInfo.dli_fbase);
+                    }
+                }
+
+                fprintf(debugFile, "\n");
+            }
+
+            free(symbols);
+        } else {
+            fprintf(debugFile, "Failed to get backtrace symbols\n");
+            // 至少输出内存地址
+            for (int i = 0; i < frameCount; i++) {
+                fprintf(debugFile, "Frame #%d: %p\n", i+1, callstack[i]);
+            }
+        }
+
+        fprintf(debugFile, "=== End of call stack (total frames: %d) ===\n", frameCount);
+        fclose(debugFile);
+    }
+
+    return Runtime::Init(domain_name);
+}
+```
+
+#### 3.2.3 构建要求
+
+要使上述代码正常工作，需要确保：
+1. 添加了 `#include <execinfo.h>` 头文件
+2. 在 Xcode 项目中链接了必要的系统框架
+3. 启用了调试符号生成
+
+### 3.3 分析结果示例
+
+使用上述方法，我们能够捕获从 `main()` 到 `il2cpp_init()` 的完整调用链，包含27个调用帧：
+
+```
+=== il2cpp_init called with domain_name: IL2CPP Root Domain ===
+Standard C++ call stack using execinfo.h:
+Frame #1: 0x15a1ba9e8
+  [C++]:  200
+  [dladdr] Demangled: il2cpp_init
+  [dladdr] File: GameAssembly.dylib
+  [dladdr] Base: 0x1589d0000
+
+Frame #2: 0x10d1e3f4c
+  [C++]:  332
+  [dladdr] Demangled: _Z24InitializeIl2CppFromMainRKN4core12basic_stringIcNS_20StringStorageDefaultIcEEEES5_iPPKcb
+  [dladdr] File: UnityPlayer.dylib
+  [dladdr] Base: 0x10c484000
+
+Frame #3: 0x10e35fae4
+  [C++]:  216
+  [dladdr] Demangled: _Z20LoadScriptingRuntimeRKN4core12basic_stringIcNS_20StringStorageDefaultIcEEEES5_iPPc
+  [dladdr] File: UnityPlayer.dylib
+  [dladdr] Base: 0x10c484000
+```
+
+### 3.4 技术优势
+
+#### 3.4.1 标准兼容性
+- 使用标准 C++ `execinfo.h` 库，不依赖 IL2CPP 特定 API
+- 在任何标准的 C++ 环境中都可以使用
+
+#### 3.4.2 性能优势
+- `backtrace()` 比 IL2CPP 的 `WalkStack()` 更轻量级
+- 更快的符号解析和内存访问
+
+#### 3.4.3 信息丰富度
+- 显示内存地址、去符号化的函数名
+- 包含文件路径和基地址信息
+- 支持多层调用栈分析
+
+### 3.5 调试技巧
+
+#### 3.5.1 日志文件位置
+调试信息输出到 `/tmp/il2cpp_init_debug.log`，可以通过以下命令实时查看：
+```bash
+tail -f /tmp/il2cpp_init_debug.log
+```
+
+#### 3.5.2 清理日志文件
+在多次运行测试前，建议清理之前的日志：
+```bash
+cat /dev/null > /tmp/il2cpp_init_debug.log
+```
+
+#### 3.5.3 调试构建
+确保使用 Debug 配置构建项目，这样可以获得完整的调试符号和更好的堆栈信息。
+
+### 3.6 应用场景
+
+这种调用堆栈检查方法特别适用于：
+1. **初始化流程分析**：了解 Unity 应用启动时的调用顺序
+2. **性能分析**：识别热点函数和潜在的性能瓶颈
+3. **内存泄漏调试**：追踪内存分配的来源
+4. **逆向工程**：分析 Unity 内部的实现细节
+5. **插件集成**：理解 Unity 和原生代码之间的交互
+
+### 3.7 扩展应用
+
+基于这个技术基础，可以进一步扩展实现：
+- 集成性能计数器测量函数执行时间
+- 添加内存使用监控功能
+- 实现选择性堆栈跟踪（特定函数的调用链）
+- 集成到 Unity 的 Profiler 系统中
+
+## 4. 总结
+
+IL2CPP 的初始化流程始于 `Runtime::Init`，它按特定顺序初始化了运行时所需的各个核心组件：OS抽象层、元数据、GC、线程、核心类型、反射等。其中，GC 的初始化会启动一个关键的终结器线程，用于异步处理对象的清理工作。
+
+**技术实现亮点：**
+- 使用标准 C++ 库实现调用堆栈检查，确保代码的可移植性
+- 采用文件输出机制解决 Unity stdout 重定向问题
+- 多层次的符号解析提供丰富的调试信息
+- 完整的调用链捕获支持深入的系统级调试
+
+这种调用堆栈检查技术为研究和调试 IL2CPP 提供了强大的工具，帮助开发者深入理解 Unity 内部工作机制。
