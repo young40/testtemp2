@@ -10,8 +10,8 @@
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppMethodExecutionContextInfo g_methodExecutionContextInfos[3] = 
 {
-	{ 5544, 0,  0 },
-	{ 4588, 1,  1 },
+	{ 5545, 0,  0 },
+	{ 4589, 1,  1 },
 	{ 6021, 2,  1 },
 };
 #else
@@ -42,8 +42,8 @@ static const Il2CppMethodExecutionContextInfoIndex g_methodExecutionContextInfoI
 static const Il2CppMethodExecutionContextInfoIndex g_methodExecutionContextInfoIndexes[1] = { { 0, 0} };
 #endif
 #if IL2CPP_MONO_DEBUGGER
-IL2CPP_EXTERN_C Il2CppSequencePoint g_sequencePointsMySIUGCScript[];
-Il2CppSequencePoint g_sequencePointsMySIUGCScript[36] = 
+IL2CPP_EXTERN_C Il2CppSequencePoint g_sequencePointsAMySIUGCScript[];
+Il2CppSequencePoint g_sequencePointsAMySIUGCScript[36] = 
 {
 	{ 16490, 0, 0, 0, 0, 0, -1, kSequencePointKind_Normal, 0, 0 },
 	{ 16490, 0, 0, 0, 0, 0, 16777215, kSequencePointKind_Normal, 0, 1 },
@@ -83,8 +83,8 @@ Il2CppSequencePoint g_sequencePointsMySIUGCScript[36] =
 	{ 16494, 2, 50, 50, 9, 10, 87, kSequencePointKind_Normal, 0, 35 },
 };
 #else
-extern Il2CppSequencePoint g_sequencePointsMySIUGCScript[];
-Il2CppSequencePoint g_sequencePointsMySIUGCScript[1] = { { 0, 0, 0, 0, 0, 0, 0, kSequencePointKind_Normal, 0, 0, } };
+extern Il2CppSequencePoint g_sequencePointsAMySIUGCScript[];
+Il2CppSequencePoint g_sequencePointsAMySIUGCScript[1] = { { 0, 0, 0, 0, 0, 0, 0, kSequencePointKind_Normal, 0, 0, } };
 #endif
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
@@ -94,8 +94,8 @@ static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[] = {
 { "", { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} },
-{ "/Users/young40/Work/Unity/MonoMemory/StepIntoUnityGC/Assets/Scripts/MySIUGCScript.cs", { 27, 149, 104, 77, 54, 63, 59, 123, 214, 107, 218, 142, 226, 98, 83, 185} },
-{ "/Users/young40/Work/Unity/MonoMemory/StepIntoUnityGC/Unity.SourceGenerators/Unity.MonoScriptGenerator.MonoScriptInfoGenerator/AssemblyMonoScriptTypes.generated.cs", { 226, 235, 29, 8, 10, 105, 5, 189, 149, 62, 76, 34, 160, 111, 244, 107} },
+{ "/Users/young40/Work/Unity/MonoMemory/StepIntoUnityGC/Assets/Scripts/AMySIUGCScript.cs", { 24, 1, 119, 243, 221, 22, 84, 86, 81, 148, 169, 79, 245, 144, 78, 133} },
+{ "/Users/young40/Work/Unity/MonoMemory/StepIntoUnityGC/Unity.SourceGenerators/Unity.MonoScriptGenerator.MonoScriptInfoGenerator/AssemblyMonoScriptTypes.generated.cs", { 195, 37, 60, 143, 57, 84, 61, 69, 165, 1, 140, 95, 190, 207, 170, 243} },
 };
 #else
 static const Il2CppSequencePointSourceFile g_sequencePointSourceFiles[1] = { NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -133,8 +133,8 @@ static const Il2CppMethodHeaderInfo g_methodHeaderInfos[7] =
 #else
 static const Il2CppMethodHeaderInfo g_methodHeaderInfos[1] = { { 0, 0, 0 } };
 #endif
-IL2CPP_EXTERN_C const Il2CppDebuggerMetadataRegistration g_DebuggerMetadataRegistrationMySIUGCScript;
-const Il2CppDebuggerMetadataRegistration g_DebuggerMetadataRegistrationMySIUGCScript = 
+IL2CPP_EXTERN_C const Il2CppDebuggerMetadataRegistration g_DebuggerMetadataRegistrationAMySIUGCScript;
+const Il2CppDebuggerMetadataRegistration g_DebuggerMetadataRegistrationAMySIUGCScript = 
 {
 	(Il2CppMethodExecutionContextInfo*)g_methodExecutionContextInfos,
 	(Il2CppMethodExecutionContextInfoIndex*)g_methodExecutionContextInfoIndexes,
@@ -142,7 +142,7 @@ const Il2CppDebuggerMetadataRegistration g_DebuggerMetadataRegistrationMySIUGCSc
 	(Il2CppMethodHeaderInfo*)g_methodHeaderInfos,
 	(Il2CppSequencePointSourceFile*)g_sequencePointSourceFiles,
 	36,
-	(Il2CppSequencePoint*)g_sequencePointsMySIUGCScript,
+	(Il2CppSequencePoint*)g_sequencePointsAMySIUGCScript,
 	0,
 	(Il2CppCatchPoint*)g_catchPoints,
 	2,
