@@ -3255,8 +3255,6 @@
 			isa = PBXGroup;
 			children = (
 				DE484A3AA4E0848ED7A1BC1D /* AMySIUGCScript.cpp */,
-				4906410682B949E932E7AF72 /* AMySIUGCScript_CodeGen.c */,
-				EA064C8490BE584DC1EE909E /* AMySIUGCScript_Debugger.c */,
 				F1514D1D8F01506EC56493E0 /* GenericMethods.cpp */,
 				864242D1B704445605EFF52A /* GenericMethods__1.cpp */,
 				8BB546DEA1418D427094BAA1 /* GenericMethods__2.cpp */,
@@ -3370,6 +3368,8 @@
 				EA3B4AE2AC7375DEBDF624A3 /* UnityEngine.VRModule.cpp */,
 				EDB943D58B13EA7B607EB699 /* UnityEngine.XRModule.cpp */,
 				76C24441867C67274CBFCD5C /* __Generated.cpp */,
+				4906410682B949E932E7AF72 /* AMySIUGCScript_CodeGen.c */,
+				EA064C8490BE584DC1EE909E /* AMySIUGCScript_Debugger.c */,
 				06074AB7B6EE01462B1A2BF5 /* Il2CppCCFieldValuesTable.c */,
 				0A3444C1BC6822FAE7E95798 /* Il2CppCCTypeValuesTable.c */,
 				C6B045F0862B1C7F4E46F77B /* Il2CppGenericAdjustorThunkTable.c */,
@@ -5426,7 +5426,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A1C23A525DE4C98008EA3B6 /* Build configuration list for PBXProject "GameAssembly" */;
+			buildConfigurationList = 8A1C23A525DE4C98008EA3B6 /* Build configuration list for PBXProject "Unity-iPhone" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -5435,7 +5435,7 @@
 				Base,
 			);
 			mainGroup = 8A1C23A125DE4C98008EA3B6;
-			productRefGroup = 8A1C23AB25DE4C98008EA3B6 /* Products */;
+			productRefGroup = 8A1C23AB25DE4C98008EA3B6;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -5449,10 +5449,6 @@
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5607,7 +5603,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A1C23A525DE4C98008EA3B6 /* Build configuration list for PBXProject "GameAssembly" */ = {
+		8A1C23A525DE4C98008EA3B6 /* Build configuration list for PBXProject "Unity-iPhone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A1C23AC25DE4C98008EA3B6 /* Debug */,
