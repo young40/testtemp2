@@ -17,9 +17,9 @@ static const Il2CppMethodExecutionContextInfo g_methodExecutionContextInfos[33] 
 	{ 1881, 4,  3 },
 	{ 1881, 5,  3 },
 	{ 1903, 6,  3 },
-	{ 5032, 7,  4 },
-	{ 5032, 8,  5 },
-	{ 5032, 9,  5 },
+	{ 5033, 7,  4 },
+	{ 5033, 8,  5 },
+	{ 5033, 9,  5 },
 	{ 7105, 10,  5 },
 	{ 6777, 11,  6 },
 	{ 6777, 11,  7 },
@@ -29,19 +29,19 @@ static const Il2CppMethodExecutionContextInfo g_methodExecutionContextInfos[33] 
 	{ 1881, 14,  8 },
 	{ 1903, 6,  8 },
 	{ 1898, 15,  8 },
-	{ 5032, 7,  9 },
+	{ 5033, 7,  9 },
 	{ 6780, 16,  10 },
-	{ 5032, 17,  10 },
+	{ 5033, 17,  10 },
 	{ 6777, 11,  11 },
 	{ 6780, 16,  18 },
 	{ 6773, 18,  20 },
 	{ 2682, 3,  24 },
 	{ 1903, 6,  24 },
-	{ 4381, 19,  26 },
+	{ 4382, 19,  26 },
 	{ 2682, 3,  30 },
 	{ 1903, 6,  30 },
-	{ 4381, 19,  32 },
-	{ 4381, 19,  34 },
+	{ 4382, 19,  32 },
+	{ 4382, 19,  34 },
 	{ 6780, 16,  35 },
 };
 #else
@@ -622,9 +622,9 @@ Il2CppSequencePoint g_sequencePointsUnityEngine_TilemapModule[1] = { { 0, 0, 0, 
 #endif
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppCatchPoint g_catchPoints[] = {
-{ 15793, 4381, 18, 0, -1 },
-{ 15798, 4381, 18, 0, -1 },
-{ 15799, 4381, 18, 0, -1 },
+{ 15793, 4382, 18, 0, -1 },
+{ 15798, 4382, 18, 0, -1 },
+{ 15799, 4382, 18, 0, -1 },
 };
 #else
 static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };

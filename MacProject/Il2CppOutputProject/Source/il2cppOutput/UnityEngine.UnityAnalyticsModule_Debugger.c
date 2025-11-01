@@ -11,7 +11,7 @@
 static const Il2CppMethodExecutionContextInfo g_methodExecutionContextInfos[6] = 
 {
 	{ 8040, 0,  0 },
-	{ 3249, 0,  1 },
+	{ 3250, 0,  1 },
 	{ 739, 0,  2 },
 	{ 686, 0,  3 },
 	{ 7374, 0,  4 },

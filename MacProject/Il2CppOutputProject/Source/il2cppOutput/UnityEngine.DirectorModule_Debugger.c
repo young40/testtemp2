@@ -10,13 +10,13 @@
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppMethodExecutionContextInfo g_methodExecutionContextInfos[10] = 
 {
-	{ 4128, 0,  1 },
-	{ 4821, 1,  1 },
-	{ 4821, 2,  1 },
+	{ 4129, 0,  1 },
+	{ 4822, 1,  1 },
+	{ 4822, 2,  1 },
 	{ 2667, 3,  6 },
-	{ 5032, 4,  6 },
-	{ 3707, 5,  6 },
-	{ 3707, 6,  6 },
+	{ 5033, 4,  6 },
+	{ 3708, 5,  6 },
+	{ 3708, 6,  6 },
 	{ 7896, 7,  6 },
 	{ 6847, 8,  6 },
 	{ 7894, 9,  6 },
@@ -257,7 +257,7 @@ Il2CppSequencePoint g_sequencePointsUnityEngine_DirectorModule[1] = { { 0, 0, 0,
 #endif
 #if IL2CPP_MONO_DEBUGGER
 static const Il2CppCatchPoint g_catchPoints[] = {
-{ 16310, 5002, 22, 0, -1 },
+{ 16310, 5003, 22, 0, -1 },
 };
 #else
 static const Il2CppCatchPoint g_catchPoints[1] = { { 0, 0, 0, 0, } };
