@@ -5,7 +5,7 @@ class MyNode
     public int mMyNodeId;
 }
 
-public class MySIUGCScript : MonoBehaviour
+public class AMySIUGCScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
