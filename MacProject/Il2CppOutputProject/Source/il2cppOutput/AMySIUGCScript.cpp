@@ -1,4 +1,5 @@
 ﻿#include "pch-cpp.hpp"
+#include "StackTraceUtils.h"
 
 
 
@@ -474,6 +475,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AMySIUGCScript_Update_m8186F25464B5A3DFD
 		CHECK_SEQ_POINT(methodExecutionContext, (g_sequencePointsAMySIUGCScript + 9));
 		//<source_info:/Users/young40/Work/Unity/MonoMemory/StepIntoUnityGC/Assets/Scripts/AMySIUGCScript.cs:21>
 		CHECK_SEQ_POINT(methodExecutionContext, (g_sequencePointsAMySIUGCScript + 10));
+		
+		// 打印调用堆栈
+		PrintCurrentStackTraceWithMessage("=== AMySIUGCScript_Update called ===");
+		
 		return;
 	}
 }
