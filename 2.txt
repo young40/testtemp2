@@ -1,0 +1,118 @@
+# "中间调试文件被过早清理"问题的详细解释
+
+## 问题本质
+
+在IL2CPP构建脚本中，**调试符号生成和文件清理存在时序冲突**。具体表现在构建脚本的最后一行：
+
+```bash
+rm -rf "$PROJECT_DIR/Il2CppTempDirArtifacts/$CONFIGURATION"
+```
+
+这行代码会在IL2CPP编译完成后**立即删除所有中间文件**，但这些文件正是生成调试符号所必需的。
+
+## IL2CPP构建流程分析
+
+### 构建流程时序问题
+
+#### 1. **文件生成阶段**
+```bash
+# IL2CPP生成调试代码到临时目录
+--cachedirectory="Il2CppTempDirArtifacts/$CONFIGURATION/artifacts/arm64"
+```
+
+#### 2. **编译阶段**
+IL2CPP生成224个.o文件到缓存目录，每个文件包含：
+- 编译后的机器码
+- 符号表信息
+- 行号映射信息
+- 类型定义信息
+
+#### 3. **链接阶段**
+将所有.o文件链接成最终的 `GameAssembly.dylib`
+
+#### 4. **清理阶段** ⚠️
+```bash
+rm -rf "$PROJECT_DIR/Il2CppTempDirArtifacts/$CONFIGURATION"
+```
+**问题**: 清理过早进行，导致Xcode后续的调试符号生成失败！
+
+## Xcode调试符号生成机制
+
+### 正常的Xcode构建流程：
+1. **编译** → 生成.o文件
+2. **链接** → 生成.dylib
+3. **调试符号生成** → 使用.o文件生成.dSYM文件
+4. **清理中间文件**（可选）
+
+### 但在IL2CPP项目中：
+1. **IL2CPP编译** → 生成.o文件
+2. **链接** → 生成.dylib
+3. **🚨 立即清理.o文件** ← 问题所在
+4. **Xcode尝试生成调试符号** → 失败，因为.o文件已删除
+
+## 验证调试符号缺失
+
+### 检查结果：
+- `dSYM file not found` - 调试符号文件未生成
+- 只剩6个符号在最终二进制中，远少于正常数量
+- 224个.o文件被清理，但部分副本保留在Xcode构建目录中
+
+### 具体影响：
+
+#### 1. **断点无法工作**
+Xcode需要调试符号来映射源码行号到机器码地址。由于.o文件被清理，映射丢失。
+
+#### 2. **变量检查失败**
+无法在调试时查看变量值，因为类型信息随.o文件一起被删除。
+
+#### 3. **堆栈跟踪不完整**
+调用堆栈显示为原始地址，而非函数名。
+
+## 解决方案
+
+### 1. **修改构建脚本延迟清理**
+将清理操作移至调试符号生成后：
+
+```bash
+# 原来的脚本
+"$IL2CPP" "${ARGS[@]}"
+rm -rf "$PROJECT_DIR/Il2CppTempDirArtifacts/$CONFIGURATION"  # 问题行
+
+# 修改为
+"$IL2CPP" "${ARGS[@]}"
+# 清理操作留给Xcode管理，或手动在构建完成后清理
+```
+
+### 2. **使用dSYM格式**
+在Xcode设置中启用dSYM生成：
+```xml
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+```
+
+### 3. **保留构建间信息**
+在项目设置中：
+```xml
+RUN_CLANG_STATIC_ANALYZER = NO
+CLANG_ENABLE_MODULES = YES
+DEAD_CODE_STRIPPING = NO
+```
+
+### 4. **Unity项目设置**
+在Player Settings中：
+- **Enable Native Code Debugging**: 必须启用
+- **Development Build**: 必须启用
+- **Script Debugging**: 必须启用
+
+## 总结
+
+"中间调试文件被过早清理"是Unity IL2CPP项目中的一个经典问题：
+
+### 核心问题
+IL2CPP构建脚本在生成GameAssembly.dylib后**立即删除所有.o文件**，而Xcode在构建后期需要这些文件来生成调试符号。这个时序冲突导致调试符号生成失败，进而使断点和调试功能失效。
+
+### 解决思路
+1. **移除或延迟脚本中的清理操作**
+2. **配置Xcode生成dSYM调试符号**
+3. **确保Unity项目启用了调试相关设置**
+
+这是Unity IL2CPP构建系统与Xcode调试机制之间不协调导致的系统性问题，需要从构建脚本和项目配置两个层面进行修复。
