@@ -84,7 +84,7 @@ $(OUTPUT_DIR)/GameAssembly.dylib: $(OBJECTS) | $(OUTPUT_DIR)
 	@echo "Linking GameAssembly.dylib"
 	@echo "Object files to link:"
 	@echo "$(OBJECTS)"
-	$(CC) $(LDFLAGS) -o $@ -fcolor-diagnostics -stdlib=libc++ -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) $(OBJECTS) -L$(LIB_DIR) -lbaselib
+	$(CC) $(LDFLAGS) -o $@ -fcolor-diagnostics -stdlib=libc++ -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) $(OBJECTS) -L$(LIB_DIR) MacProject/Libraries/baselib.a
 
 clean:
 	rm -rf $(OUTPUT_DIR)
