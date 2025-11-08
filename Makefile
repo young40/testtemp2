@@ -77,11 +77,13 @@ $(OUTPUT_DIR)/%.o: $(SOURCE_DIR)/%.cpp | $(OUTPUT_DIR)/pch-cpp-85167650504628711
 
 $(OUTPUT_DIR)/%.o: $(SOURCE_DIR)/%.c | $(OUTPUT_DIR)/pch-c-764564960109082866.pch
 	@echo "Compiling C source: $<"
-	$(CC) $(CFLAGS) -I"$(IL2CPP_DIR)/libil2cpp/pch" $(INCLUDES) -o $@ -fcolor-diagnostics -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) -c -x c $<
+	$(CC) $(CFLAGS) -I"$(IL2CPP_DIR)/libil2cpp/pch" -I"$(IL2CPP_DIR)" $(INCLUDES) -o $@ -fcolor-diagnostics -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) -c -x c $<
 
 # Link object files to create GameAssembly.dylib
 $(OUTPUT_DIR)/GameAssembly.dylib: $(OBJECTS) | $(OUTPUT_DIR)
 	@echo "Linking GameAssembly.dylib"
+	@echo "Object files to link:"
+	@echo "$(OBJECTS)"
 	$(CC) $(LDFLAGS) -o $@ -fcolor-diagnostics -stdlib=libc++ -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) $(OBJECTS) -L$(LIB_DIR) -lbaselib
 
 clean:
