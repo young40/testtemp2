@@ -46,8 +46,6 @@
 #include <locale.h>
 #include <fstream>
 #include <string>
-#include <dlfcn.h>
-#include <execinfo.h>
 
 using namespace il2cpp::vm;
 using il2cpp::utils::Memory;
@@ -95,90 +93,6 @@ int il2cpp_init(const char* domain_name)
 {
     // Use environment's default locale
     setlocale(LC_ALL, "");
-
-    // Unity会自动重定向printf输出到日志文件：/Users/young40/Library/Logs/DefaultCompany/StepIntoUnityGC/Player.log
-    printf("=== il2cpp_init called with domain_name: %s ===\n", domain_name ? domain_name : "NULL");
-    printf("Standard C++ call stack using execinfo.h:\n");
-
-    // 使用标准C++的execinfo.h来获取调用堆栈
-    const int MAX_STACK_FRAMES = 64;
-    void* callstack[MAX_STACK_FRAMES];
-    int frameCount = backtrace(callstack, MAX_STACK_FRAMES);
-
-    // 将堆栈符号转换为可读字符串
-    char** symbols = backtrace_symbols(callstack, frameCount);
-
-    if (symbols != NULL) {
-        for (int i = 0; i < frameCount; i++) {
-            printf("Frame #%d: %p\n", i+1, callstack[i]);
-
-            // 解析符号信息
-            char* symbol = symbols[i];
-
-            // 尝试从符号字符串中提取函数名
-            if (symbol != NULL) {
-                // 查找函数名在符号字符串中的位置
-                char* start = strchr(symbol, '(');
-                if (start) {
-                    start++; // 跳过 '('
-                    char* end = strchr(start, '+');
-                    if (end) {
-                        *end = '\0'; // 截断函数名
-                        printf("  [C++] Function: %s\n", start);
-                    } else {
-                        // 如果没有找到+号，尝试找到)号
-                        end = strchr(start, ')');
-                        if (end) {
-                            *end = '\0';
-                            printf("  [C++] Function: %s\n", start);
-                        } else {
-                            printf("  [C++] Symbol: %s\n", symbol);
-                        }
-                    }
-                } else {
-                    // 尝试查找最后一个空格后的内容（函数名通常在最后）
-                    char* last_space = strrchr(symbol, ' ');
-                    if (last_space) {
-                        printf("  [C++]: %s\n", last_space);
-                    } else {
-                        printf("  [C++]: %s\n", symbol);
-                    }
-                }
-            }
-
-            // 使用dladdr获取更详细的符号信息
-            Dl_info dlInfo;
-            if (dladdr(callstack[i], &dlInfo)) {
-                if (dlInfo.dli_sname) {
-                    printf("  [dladdr] Demangled: %s\n", dlInfo.dli_sname);
-                }
-                if (dlInfo.dli_fname) {
-                    printf("  [dladdr] File: %s\n", dlInfo.dli_fname);
-                }
-                if (dlInfo.dli_fbase) {
-                    printf("  [dladdr] Base: %p\n", dlInfo.dli_fbase);
-                }
-            }
-
-            printf("\n");
-        }
-
-        free(symbols);
-    } else {
-        printf("Failed to get backtrace symbols\n");
-        // 至少输出内存地址
-        for (int i = 0; i < frameCount; i++) {
-            printf("Frame #%d: %p\n", i+1, callstack[i]);
-        }
-    }
-
-    printf("=== End of call stack (total frames: %d) ===\n", frameCount);
-
-    // 同时也尝试使用IL2CPP日志系统
-    il2cpp::utils::Logging::Write("=== il2cpp_init called with domain_name: %s ===", domain_name ? domain_name : "NULL");
-
-    // 简单测试输出
-    printf("TEST: This should appear if printf is working\n");
 
     return Runtime::Init(domain_name);
 }

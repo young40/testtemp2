@@ -12,10 +12,7 @@ struct MemberFilter_tF644F1AE82F611B677CE1964D5A3277DDA21D553;
 struct Type_t;
 struct Void_t4861ACF8F4594C3437BB48B6E56783494B843915;
 
-IL2CPP_EXTERN_C Il2CppSequencePoint g_sequencePointsUnityEngine_MultiplayerModule[];
 IL2CPP_EXTERN_C RuntimeClass* CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C const RuntimeMethod* CurrentPlayer_ReloadLatestTagsOnEnterPlaymode_mE780AB0F8B1693982575A991C87FB3689BDBDFCD_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* CurrentPlayer__cctor_m11DAAC2E9F23318619F5E7FB30BFC904BF4E4E26_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeType* CurrentPlayerApi_tBA7E3D451058BF490343DD8582F0E1DA867DD63A_0_0_0_var;
 
 
@@ -113,51 +110,37 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* Type_GetTypeFromHandle_m6062B81682F79
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 16514
+// Method Definition Index: 16181
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CurrentPlayer_ReloadLatestTagsOnEnterPlaymode_mE780AB0F8B1693982575A991C87FB3689BDBDFCD (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&CurrentPlayer_ReloadLatestTagsOnEnterPlaymode_mE780AB0F8B1693982575A991C87FB3689BDBDFCD_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, CurrentPlayer_ReloadLatestTagsOnEnterPlaymode_mE780AB0F8B1693982575A991C87FB3689BDBDFCD_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_METHOD_ENTRY_SEQ_POINT(methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 0));
-	CHECK_METHOD_EXIT_SEQ_POINT(methodExitChecker, methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 1));
 	{
-		CHECK_SEQ_POINT(methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 2));
-		CHECK_SEQ_POINT(methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 3));
 		il2cpp_codegen_runtime_class_init_inline(CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_il2cpp_TypeInfo_var);
 		((CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_StaticFields*)il2cpp_codegen_static_fields_for(CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_il2cpp_TypeInfo_var))->___s_CurrentPlayerApi = (CurrentPlayerApi_tBA7E3D451058BF490343DD8582F0E1DA867DD63A*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&((CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_StaticFields*)il2cpp_codegen_static_fields_for(CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_il2cpp_TypeInfo_var))->___s_CurrentPlayerApi), (void*)(CurrentPlayerApi_tBA7E3D451058BF490343DD8582F0E1DA867DD63A*)NULL);
-		CHECK_SEQ_POINT(methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 4));
 		return;
 	}
 }
-// Method Definition Index: 16515
+// Method Definition Index: 16182
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CurrentPlayer__cctor_m11DAAC2E9F23318619F5E7FB30BFC904BF4E4E26 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&CurrentPlayerApi_tBA7E3D451058BF490343DD8582F0E1DA867DD63A_0_0_0_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&CurrentPlayer__cctor_m11DAAC2E9F23318619F5E7FB30BFC904BF4E4E26_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
-	DECLARE_METHOD_EXEC_CTX(methodExecutionContext, CurrentPlayer__cctor_m11DAAC2E9F23318619F5E7FB30BFC904BF4E4E26_RuntimeMethod_var, NULL, NULL, NULL);
-	CHECK_METHOD_ENTRY_SEQ_POINT(methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 5));
-	CHECK_METHOD_EXIT_SEQ_POINT(methodExitChecker, methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 6));
 	{
-		CHECK_SEQ_POINT(methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 7));
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_0 = { reinterpret_cast<intptr_t> (CurrentPlayerApi_tBA7E3D451058BF490343DD8582F0E1DA867DD63A_0_0_0_var) };
-		STORE_SEQ_POINT(methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 8));
 		il2cpp_codegen_runtime_class_init_inline(il2cpp_defaults.systemtype_class);
 		Type_t* L_1;
 		L_1 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_0, NULL);
-		CHECK_SEQ_POINT(methodExecutionContext, (g_sequencePointsUnityEngine_MultiplayerModule + 8));
 		((CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_StaticFields*)il2cpp_codegen_static_fields_for(CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_il2cpp_TypeInfo_var))->___s_EditorApiType = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&((CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_StaticFields*)il2cpp_codegen_static_fields_for(CurrentPlayer_tA38F5DE026D7800F8A64FB198765CD6F1D88EA68_il2cpp_TypeInfo_var))->___s_EditorApiType), (void*)L_1);
 		return;

@@ -26,15 +26,14 @@ static Il2CppMethodPointer s_methodPointers[7] =
 };
 static const int32_t s_InvokerIndices[7] = 
 {
-	3208,
-	3208,
-	3208,
-	3208,
-	3208,
-	5500,
-	3208,
+	2769,
+	2769,
+	2769,
+	2769,
+	2769,
+	4599,
+	2769,
 };
-extern const Il2CppDebuggerMetadataRegistration g_DebuggerMetadataRegistrationAMySIUGCScript;
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AMySIUGCScript_CodeGenModule;
 const Il2CppCodeGenModule g_AMySIUGCScript_CodeGenModule = 
 {
@@ -50,7 +49,7 @@ const Il2CppCodeGenModule g_AMySIUGCScript_CodeGenModule =
 	NULL,
 	0,
 	NULL,
-	&g_DebuggerMetadataRegistrationAMySIUGCScript,
+	NULL,
 	NULL,
 	NULL,
 	NULL,
