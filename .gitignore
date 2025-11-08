@@ -91,3 +91,5 @@ MacProject/build/
 # IL2CPP output files that should not be tracked
 MacProject/Il2CppOutputProject/Source/il2cppOutput/il2cpp-compile.traceevents
 MacProject/Il2CppOutputProject/Source/il2cppOutput/profile.json
+
+Il2CppOutputProject/Source/il2cppOutput/Symbols/LineNumberMappings.json
