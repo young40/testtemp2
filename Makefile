@@ -51,8 +51,8 @@ LDFLAGS = -std=c++17 -Wswitch -Wno-trigraphs -Wno-tautological-compare -Wno-inva
 # Automatically generate source file list
 SOURCES := $(shell find $(SOURCE_DIR) -name "*.cpp" -o -name "*.c")
 
-# Object files
-OBJECTS = $(SOURCES:$(SOURCE_DIR)/%.cpp=$(OUTPUT_DIR)/%.o) $(SOURCES:$(SOURCE_DIR)/%.c=$(OUTPUT_DIR)/%.o)
+# Object files - Fixed version to ensure only .o files
+OBJECTS = $(patsubst $(SOURCE_DIR)/%.cpp,$(OUTPUT_DIR)/%.o,$(patsubst $(SOURCE_DIR)/%.c,$(OUTPUT_DIR)/%.o,$(SOURCES)))
 
 # Default target
 all: $(OUTPUT_DIR)/pch-c-764564960109082866.pch $(OUTPUT_DIR)/pch-cpp-8516765050462871105.pch $(OUTPUT_DIR)/GameAssembly.dylib
