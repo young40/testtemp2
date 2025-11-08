@@ -36,7 +36,8 @@ CFLAGS = -Wswitch -Wno-trigraphs -Wno-tautological-compare -Wno-invalid-offsetof
 INCLUDES = -I"." -I"$(SOURCE_DIR)" -I"$(IL2CPP_DIR)/libil2cpp/pch" -I"$(IL2CPP_DIR)/libil2cpp" \
            -I"$(IL2CPP_DIR)/external/baselib/Include" \
            -I"$(IL2CPP_DIR)/libil2cpp/os/ClassLibraryPAL/brotli/include" \
-           -I"$(IL2CPP_DIR)/external/baselib/Platforms/OSX/Include"
+           -I"$(IL2CPP_DIR)/external/baselib/Platforms/OSX/Include" \
+           -I"$(IL2CPP_DIR)/libil2cpp/pch"
 
 LDFLAGS = -std=c++17 -Wswitch -Wno-trigraphs -Wno-tautological-compare -Wno-invalid-offsetof \
           -Wno-implicitly-unsigned-literal -Wno-integer-overflow -Wno-shift-negative-value \
