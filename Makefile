@@ -5,7 +5,7 @@ CC = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolch
 SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.sdk
 ARCH = arm64
 MIN_MACOS_VERSION = 11.0
-OUTPUT_DIR = Il2CppTempDirArtifacts/Debug/artifacts/arm64/9420
+OUTPUT_DIR = makebuild/debug
 SOURCE_DIR = MacProject/Il2CppOutputProject/Source/il2cppOutput
 IL2CPP_DIR = MacProject/Il2CppOutputProject/IL2CPP
 LIB_DIR = MacProject/Libraries
@@ -37,6 +37,7 @@ INCLUDES = -I"." -I"$(SOURCE_DIR)" -I"$(IL2CPP_DIR)/libil2cpp/pch" -I"$(IL2CPP_D
            -I"$(IL2CPP_DIR)/external/baselib/Include" \
            -I"$(IL2CPP_DIR)/libil2cpp/os/ClassLibraryPAL/brotli/include" \
            -I"$(IL2CPP_DIR)/external/baselib/Platforms/OSX/Include" \
+					 -I"$(IL2CPP_DIR)/libil2cpp/pch" \
 					 -I"$(IL2CPP_DIR)/libil2cpp/pch"
 
 LDFLAGS = -std=c++17 -Wswitch -Wno-trigraphs -Wno-tautological-compare -Wno-invalid-offsetof \
@@ -62,20 +63,25 @@ $(OUTPUT_DIR):
 
 # Precompiled headers
 $(OUTPUT_DIR)/pch-c-764564960109082866.pch: $(IL2CPP_DIR)/libil2cpp/pch/pch-c.h | $(OUTPUT_DIR)
+	@echo "Compiling C PCH: $@"
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -fcolor-diagnostics -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) -c -x c-header $<
 
 $(OUTPUT_DIR)/pch-cpp-8516765050462871105.pch: $(IL2CPP_DIR)/libil2cpp/pch/pch-cpp.hpp | $(OUTPUT_DIR)
+	@echo "Compiling C++ PCH: $@"
 	$(CC) $(CPPFLAGS) $(INCLUDES) -o $@ -fcolor-diagnostics -stdlib=libc++ -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) -c -x c++-header $<
 
 # Compile source files to object files
 $(OUTPUT_DIR)/%.o: $(SOURCE_DIR)/%.cpp | $(OUTPUT_DIR)/pch-cpp-8516765050462871105.pch
+	@echo "Compiling C++ source: $<"
 	$(CC) $(CPPFLAGS) -I"$(IL2CPP_DIR)/libil2cpp/pch" $(INCLUDES) -o $@ -fcolor-diagnostics -stdlib=libc++ -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) -c -x c++ $<
 
 $(OUTPUT_DIR)/%.o: $(SOURCE_DIR)/%.c | $(OUTPUT_DIR)/pch-c-764564960109082866.pch
+	@echo "Compiling C source: $<"
 	$(CC) $(CFLAGS) -I"$(IL2CPP_DIR)/libil2cpp/pch" $(INCLUDES) -o $@ -fcolor-diagnostics -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) -c -x c $<
 
 # Link object files to create GameAssembly.dylib
 $(OUTPUT_DIR)/GameAssembly.dylib: $(OBJECTS) | $(OUTPUT_DIR)
+	@echo "Linking GameAssembly.dylib"
 	$(CC) $(LDFLAGS) -o $@ -fcolor-diagnostics -stdlib=libc++ -arch $(ARCH) -mmacosx-version-min=$(MIN_MACOS_VERSION) $(OBJECTS) -L$(LIB_DIR) -lbaselib
 
 clean:
